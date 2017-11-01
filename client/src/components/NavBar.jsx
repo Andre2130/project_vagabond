@@ -43,6 +43,10 @@ const NavBarLinks = styled.button`
     }
 `
 
+const AppTitle = styled.h1`
+    font-family: 'Rubik', sans-serif;
+`
+
 
 const NavBar = () => {
     return (
@@ -51,7 +55,7 @@ const NavBar = () => {
             <LogoImageHolder>
                 <LogoImage src="http://brightnewt.com/wp-content/uploads/2014/06/icon1024.png" />
             </LogoImageHolder>
-            <h1>Vagabond Traveler</h1>
+            <AppTitle>Vagabond Traveler</AppTitle>
 
             <NavBarLinkHolder>
                 <NavBarLinks><Link to="#">Sign-up</Link></NavBarLinks>
