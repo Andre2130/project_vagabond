@@ -52,7 +52,11 @@ posts << Post.create!(
 )
 
 cities.each do |city|
-    posts: posts
+    Post.create!({
+        title: post[:title],
+        description: post[:description]
+    })
+  
 end
 
 
