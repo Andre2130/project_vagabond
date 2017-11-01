@@ -5,7 +5,7 @@ class HomePage extends Component {
         return (
             <div>
                 
-          <img src="http://brightnewt.com/wp-content/uploads/2014/06/icon1024.png" className="App-logo" alt="logo" />
+        
        
             </div>
         );
@@ -13,3 +13,5 @@ class HomePage extends Component {
 }
 
 export default HomePage;
+
+//    <img src="http://brightnewt.com/wp-content/uploads/2014/06/icon1024.png" className="App-logo" alt="logo" />
