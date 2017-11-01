@@ -14,10 +14,16 @@ const LogoImage = styled.img`
     height: 80px;
 `
 
+const LogoImageHolder = styled.div`
+    width: 280px;
+    display: flex;
+    justify-content: center;
+`
+
 const NavBarLinkHolder = styled.div`
     display: flex;
     flex-direction: row;
-    Justify-content: space-between;
+    Justify-content: space-around;
     padding-right: 20px;
     padding-left: 10px;
 `
@@ -37,19 +43,26 @@ const NavBarLinks = styled.button`
     }
 `
 
+const AppTitle = styled.h1`
+    font-family: 'Rubik', sans-serif;
+`
+
 
 const NavBar = () => {
     return (
         <NavBarContainer>
 
-            <LogoImage src="http://brightnewt.com/wp-content/uploads/2014/06/icon1024.png" />
+            <LogoImageHolder>
+                <LogoImage src="http://brightnewt.com/wp-content/uploads/2014/06/icon1024.png" />
+            </LogoImageHolder>
+            <AppTitle>Vagabond Traveler</AppTitle>
 
             <NavBarLinkHolder>
-                    <NavBarLinks><Link to="#">Sign-up</Link></NavBarLinks>
-                    <NavBarLinks><Link to="#">Log-in</Link></NavBarLinks>
+                <NavBarLinks><Link to="#">Sign-up</Link></NavBarLinks>
+                <NavBarLinks><Link to="#">Log-in</Link></NavBarLinks>
             </NavBarLinkHolder>
 
-        </NavBarContainer>
+        </NavBarContainer >
     );
 };
 
