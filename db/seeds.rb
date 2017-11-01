@@ -2,34 +2,35 @@ User.destroy_all
 City.destroy_all
 # Post.destroy_all
 
-    User.create!(
+    User.create!({
     email: "victoria@gmail.com", 
     password: "blahblah"
-    )
+    })
 
-    User.create!(
+    User.create!({
     email: "tom@gmail.com", 
     password: "blahblah"
-    )
+    })
 
-    User.create!(
+    User.create!({
     email: "andre@gmail.com", 
-    password: "blahblah")
+    password: "blahblah"
+    })
 
-    City.create!(
+    City.create!({
     name: "Atlanta", 
     image:"https://i.imgur.com/ma1Eup5.jpg"
-    )
+    })
 
-    City.create!(
+    City.create!({
     name: "London", 
     image:"https://i.imgur.com/yahfVTm.jpg"
-    )
+    })
 
-    City.create!(
+    City.create!({
     name: "San Francisco", 
     image:"https://i.imgur.com/aFys868.jpg"
-    )
+    })
 
     # Post.create!(
     #     title: 'Parks',

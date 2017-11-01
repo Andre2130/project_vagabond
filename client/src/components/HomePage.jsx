@@ -42,17 +42,17 @@ class HomePage extends Component {
     render() {
         return (
             <Main>
-            <Atlanta>
-        <h1>Atlanta</h1>
-            </Atlanta>
-            <London>
-        <h1>London</h1>
-            </London>
-            <SanFran>
-        <h1>San Francisco</h1>
-            </SanFran>
+                <Atlanta>
+                    <h1>Atlanta</h1>
+                </Atlanta>
+                <London>
+                    <h1>London</h1>
+                </London>
+                <SanFran>
+                    <h1>San Francisco</h1>
+                </SanFran>
             </Main>
-        );
+        )
     }
 }
 
