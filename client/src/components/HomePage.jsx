@@ -1,43 +1,56 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 
-const City = styled.div`
-font-family: 'Nosifer', cursive;
-  background-image: url("https://www.homeadvisor.com/images/consumer/hhi/hero-photos/city/Atlanta.jpg");
+const Atlanta = styled.div`
+font-family: 'Rubik';
+  background-image: url('https://i.imgur.com/ma1Eup5.jpg');
   background-attachment: fixed;
   background-position: center;
   padding: 20px;
   margin-top: 150px;
   text-align: center;
-  color:black;
+  color:white;
+  font-size:50px;
+`
+const London = styled.div`
+font-family: 'Rubik';
+  background-image: url('https://i.imgur.com/yahfVTm.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  padding: 20px;
+  margin-top: 150px;
+  text-align: center;
+  color:white;
+  font-size:50px;
+`
+const SanFran = styled.div`
+font-family: 'Rubik';
+  background-image: url('https://i.imgur.com/aFys868.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  padding: 20px;
+  margin-top: 150px;
+  text-align: center;
+  color:white;
   font-size:50px;
 `
 const Main = styled.div`
 
 `
 
-const Title = styled.div`
-text-align:center;
-font-size:100px;
-font-family: 'Rubik';
-`
-
 class HomePage extends Component {
     render() {
         return (
             <Main>
-                <Title>
-            Vagabond Traveler
-            </Title>
-            <City>
+            <Atlanta>
         <h1>Atlanta</h1>
-            </City>
-            <City>
+            </Atlanta>
+            <London>
         <h1>London</h1>
-            </City>
-            <City>
-        <h1>Sanfran</h1>
-            </City>
+            </London>
+            <SanFran>
+        <h1>San Francisco</h1>
+            </SanFran>
             </Main>
         );
     }
