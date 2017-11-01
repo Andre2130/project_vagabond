@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const NavBarLinks = styled.div`
 display: flex;
 flex-direction: row;
-align-items: space-between;
+Justify-content: space-between;
 padding-right: 20px;
 padding-left: 10px;
 a{
@@ -33,19 +33,17 @@ img{
 const NavBar = () => {
     return (
         <NavBarContainer>
-                <NavBarLinks>
-                <div>
-                    <Link to="#">signup</Link>
-                </div>
-                <div>
-                    <Link to="#">login</Link>
-                </div>
-            </NavBarLinks>
-
-              <LogoImage>
+            <LogoImage>
                 <img src="http://brightnewt.com/wp-content/uploads/2014/06/icon1024.png" />
             </LogoImage>
-
+            <NavBarLinks>
+                <div>
+                    <button><Link to="#">Sign-up</Link></button>
+                </div>
+                <div>
+                    <button><Link to="#">Log-in</Link></button>
+                </div>
+            </NavBarLinks>
         </NavBarContainer>
     );
 };

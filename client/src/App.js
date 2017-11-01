@@ -17,12 +17,8 @@ class App extends Component {
          <HomePage />
       </Switch>
       </div>
-<<<<<<< HEAD
-    )
-=======
       </Router>
     );
->>>>>>> c648b929f28dae6452896ceafa858fbbf114f5ec
   }
 }
 
