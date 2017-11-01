@@ -11,12 +11,12 @@ class App extends Component {
     return (
       <Router className="App">
         <div>
-        <NavBar />
+          <NavBar />
 
-      <Switch>
-         <HomePage />
-      </Switch>
-      </div>
+          <Switch>
+            <HomePage />
+          </Switch>
+        </div>
       </Router>
     );
   }
