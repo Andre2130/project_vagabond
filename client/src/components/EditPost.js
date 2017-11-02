@@ -12,6 +12,9 @@ class EditForm extends Component {
         redirectToPost: false,
         id: ''
     }
+componentWillMount(){
+    this.setState({updatedPost: this.props.post})
+}
 
     handleChange = (event, id) => {
         const attribute = event.target.name
@@ -22,7 +25,7 @@ class EditForm extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        const  { city_id }= this.props.match.params
+        const  { city_id } = this.state.match.params
         const { id } = this.state.updatedPost.id
         const clonedPost = {...this.state.updatedPost}
         const response = await axios.patch(`/api/cities/${city_id}/posts/${id}`, {
@@ -47,10 +50,10 @@ class EditForm extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <input onChange={this.handleChange} placeholder={this.state.post.title} name='title' type="text" value={this.state.updatedPost.title} />
+                        <input onChange={this.handleChange} name='title' type="text" value={this.props.post.title} />
                     </div>
                     <div>
-                        <input onChange={this.handleChange} placeholder={this.state.post.description}  name='description' type="text" value={this.state.updatedPost.description} />
+                        <input onChange={this.handleChange} name='description' type="text" value={this.props.post.description} />
                     </div>
                     <div>
                         <button>Edit Post</button>
