@@ -33,6 +33,29 @@ class City extends Component {
             console.log(error)
         }
     }
+
+    // This isn't going to work because there isn't a posts controller, I believe. 
+// componentWillMount(){
+// const cityId = this.props.match.params.cityId
+// this.fetchCityAndPostData(cityId)
+// }
+
+// fetchCityAndPostData = async (cityId) => {
+// try {
+//     const cityResponse = await axios.get(`/api/cities/${cityId}`)
+//     const postsResponse = await axios.get(`/api/cities/${cityId}/posts`)
+//     await this.setState({
+//         city: cityResponse.data,
+//         posts: postsResponse.data
+//     });
+// } catch(error) {
+//     console.log(error)
+//     await this.setState({error: error.message})
+// }
+
+// }
+
+
     render() {
         return (
             <CityContainer>
@@ -40,7 +63,7 @@ class City extends Component {
                     <h2>{this.state.city.name}</h2>
                     
                     <CityImage>
-                        <img src={this.state.city.image} />
+                        <img src={this.state.city.image} alt-text="{this.state.city.name}"/>
                     </CityImage>
                 </CityDetailsContainer>
             </CityContainer>
