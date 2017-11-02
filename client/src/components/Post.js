@@ -60,6 +60,11 @@ class Post extends Component {
 
 
     render() {
+        if(this.state.redirectToPost){
+            return <Redirect to={`/cities/${city_id}/posts/${id}`} />
+        }
+
+
         if (!this.state.editPostDetails) {
 
             return (
