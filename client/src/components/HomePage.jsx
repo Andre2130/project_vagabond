@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const City = styled.div`
+const CityList = styled.div`
   font-family: 'Rubik';
   background-attachment: fixed;
   background-position: center;
@@ -36,9 +36,9 @@ const HomePage = (props) => {
       {
         props.cities.map((city) => {
           return (
-            <City style={{ backgroundImage: `url(${city.image})` }}>
+            <CityList style={{ backgroundImage: `url(${List.image})` }}>
               <CityLink><Link to={`/cities/${city.id}`}>{city.name}</Link></CityLink>
-            </City>
+            </CityList>
           )
         })
       }
