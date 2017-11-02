@@ -36,7 +36,7 @@ const HomePage = (props) => {
       {
         props.cities.map((city) => {
           return (
-            <CityList style={{ backgroundImage: `url(${List.image})` }}>
+            <CityList style={{ backgroundImage: `url(${city.image})` }}>
               <CityLink><Link to={`/cities/${city.id}`}>{city.name}</Link></CityLink>
             </CityList>
           )

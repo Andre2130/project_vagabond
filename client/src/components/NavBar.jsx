@@ -49,6 +49,9 @@ const AppTitle = styled.h1`
         text-decoration: none;
         color: black;
     }
+    a:hover {
+        text-shadow: 1px 1px 2px
+    }
 `
 
 
