@@ -55,14 +55,16 @@ const AppTitle = styled.h1`
 `
 
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <NavBarContainer>
 
             <LogoImageHolder>
                 <LogoImage src="http://brightnewt.com/wp-content/uploads/2014/06/icon1024.png" />
             </LogoImageHolder>
-            <AppTitle><Link to="/">Vagabond Traveler </Link></AppTitle>
+            <AppTitle><Link to="/">Vagabond Traveler {props.cities.map((city) => {
+                return (<span>{city.name}</span>)
+            })}</Link></AppTitle>
 
             <NavBarLinkHolder>
                 <NavBarLinks><Link to="#">Sign-up</Link></NavBarLinks>

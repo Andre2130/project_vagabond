@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <Router className="App">
         <div>
-          <NavBar />
+          <NavBar cities={this.state.cities}/>
 
           <Switch>
               <Route exact path="/"  render={HomePageComponent}/>
