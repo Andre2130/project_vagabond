@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
 const PostContainer = styled.div`
@@ -24,19 +24,11 @@ class Post extends Component {
             await this.setState({
                 post: response.data
             })
-
         } catch (error) {
             console.log(error)
             await this.setState({ error: error.message })
         }
     }
-
-    // handleChange = (event, id) => {
-    //     const attribute = event.target.name
-    //     const updatedPost = {...this.state.post}
-    //     updatedPost[attribute] = event.target.value
-    //     this.setState({ post: updatedPost })
-    // }
 
     showPost = async () => {
         try {
@@ -59,16 +51,17 @@ class Post extends Component {
 
         if (this.state.redirectToPost) {
             return (
-               <Redirect to={`/cities`} />
+                <Redirect to={`/cities`} />
             )
         }
-        if (!this.state.editPostDetails){
+        if (!this.state.editPostDetails) {
             return (
                 <PostContainer>
                     <strong>{this.state.post.title}</strong>
                     <p>{this.state.post.description}</p>
                     <p>{this.state.post.created_at}</p>
                     <button onClick={this.toggleEditPost}>Edit</button>
+                    <Link to={`/cities/${this.state.post.city_id}`}><button>Back</button></Link>
                 </PostContainer>
             )
         }
@@ -76,9 +69,9 @@ class Post extends Component {
             return (
                 <EditForm toggleEditPost={this.toggleEditPost} showPost={this.showPost} post={this.state.post} />
             )
-
         }
     }
 }
+
 
 export default Post;
