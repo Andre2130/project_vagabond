@@ -49,11 +49,7 @@ class Post extends Component {
 
     render() {
 
-        if (this.state.redirectToPost) {
-            return (
-                <Redirect to={`/cities`} />
-            )
-        }
+        
         if (!this.state.editPostDetails) {
             return (
                 <PostContainer>
