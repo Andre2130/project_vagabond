@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
 const PostContainer = styled.div`
@@ -26,19 +26,11 @@ class Post extends Component {
             await this.setState({
                 post: response.data
             })
-
         } catch (error) {
             console.log(error)
             await this.setState({ error: error.message })
         }
     }
-
-    // handleChange = (event, id) => {
-    //     const attribute = event.target.name
-    //     const updatedPost = {...this.state.post}
-    //     updatedPost[attribute] = event.target.value
-    //     this.setState({ post: updatedPost })
-    // }
 
     showPost = async () => {
         try {
@@ -105,9 +97,9 @@ class Post extends Component {
             return (
                 <EditForm toggleEditPost={this.toggleEditPost} showPost={this.showPost} post={this.state.post} />
             )
-
         }
     }
 }
+
 
 export default Post;

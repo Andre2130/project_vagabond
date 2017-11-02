@@ -34,12 +34,6 @@ class EditForm extends Component {
         await this.props.showPost()
         this.props.toggleEditPost()
         this.setState({ updatedPost: response.data, redirectToPost: true })
-        
-        //window.location.reload()
-    }
-
-    componentDidUpdate() {
-        
     }
 
     render() {
