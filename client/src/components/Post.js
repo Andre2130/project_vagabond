@@ -11,31 +11,35 @@ const PostContainer = styled.div`
 
 class Post extends Component {
     state = {
-        post: {title: '',
-        description:''},
+        post: {
+            title: '',
+            description:''
+        },
         editPostDetails: false,
         redirectToPost: false
     }
 
     async componentWillMount() {
+        this.showPost()
         try {
             const { id, city_id } = this.props.match.params
             const response = await axios.get(`/api/cities/${city_id}/posts/${id}`)
             await this.setState({
                 post: response.data
             })
+            
         } catch (error) {
             console.log(error)
             await this.setState({ error: error.message })
         }
     }
 
-    handleChange = (event, id) => {
-        const attribute = event.target.name
-        const updatedPost = {...this.state.post}
-        updatedPost[attribute] = event.target.value
-        this.setState({ post: updatedPost })
-    }
+    // handleChange = (event, id) => {
+    //     const attribute = event.target.name
+    //     const updatedPost = {...this.state.post}
+    //     updatedPost[attribute] = event.target.value
+    //     this.setState({ post: updatedPost })
+    // }
 
     showPost = async () => {
         try {
@@ -71,7 +75,7 @@ class Post extends Component {
         }
         else {
             return (
-                <EditPost toggleEditPost={this.toggleEditPost} showPost={this.showPost} post={this.state.post}/>
+                <EditPost toggleEditPost={this.toggleEditPost} reloadPost={this.showPost} post={this.state.post}/>
             )
         }
     }

@@ -8,52 +8,54 @@ class EditForm extends Component {
         updatedPost: {
             title: '',
             description: ''
-        }, 
-        redirectToPost: false,
-        id: ''
+        },
+        redirectToPost: false
     }
-componentWillMount(){
-    this.setState({updatedPost: this.props.post})
-}
 
-    handleChange = (event, id) => {
+    componentWillMount() {
+        this.setState({ updatedPost: this.props.post })
+    }
+
+    handleChange = (event) => {
         const attribute = event.target.name
-        const updatedPost = { ...this.state.updatedPost }
+        const updatedPost = {...this.state.updatedPost}
         updatedPost[attribute] = event.target.value
-        this.setState({ updatedPost })
+        this.setState({ updatedPost: updatedPost })
     }
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        const  { city_id } = this.state.match.params
-        const { id } = this.state.updatedPost.id
-        const clonedPost = {...this.state.updatedPost}
+        const city_id = this.state.updatedPost.city_id
+        const id = this.state.updatedPost.id
+        const clonedPost = { ...this.state.updatedPost }
         const response = await axios.patch(`/api/cities/${city_id}/posts/${id}`, {
             post: clonedPost
         })
-        this.setState({updatedPost: response.data, redirectToPost: true })
-
+        this.setState({ updatedPost: response.data, redirectToPost: true })
     }
 
 
     render() {
+
         if (this.state.redirectToPost === true) {
-            const { city_id } = this.props.match.params
-            const { id } = this.state.updatedPost.id
+            const city_id = this.state.updatedPost.city_id
+            const id = this.state.updatedPost.id
+       
             return (
-            <Redirect to = {`/cities/${city_id}/posts/${id}`} />
+                <Redirect to={`/cities/${city_id}/posts/${id}`} />
             )
         }
+
 
 
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <input onChange={this.handleChange} name='title' type="text" value={this.props.post.title} />
+                        <input onChange={this.handleChange} name='title' type="text" placeholder={this.props.post.title} />
                     </div>
                     <div>
-                        <input onChange={this.handleChange} name='description' type="text" value={this.props.post.description} />
+                        <input onChange={this.handleChange} name='description' type="text" placeholder={this.props.post.description} />
                     </div>
                     <div>
                         <button>Edit Post</button>
