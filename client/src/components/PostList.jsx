@@ -6,7 +6,7 @@ const PostList = (props) => {
     return (
         <div>
             <Link to={`/cities/${props.city.id}/posts`}>Add A Post</Link>
-            
+
             {props.posts.map((post) => {
                 return (
                     <div>
