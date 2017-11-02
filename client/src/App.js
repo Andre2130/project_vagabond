@@ -6,6 +6,7 @@ import './App.css'
 import HomePage from './components/HomePage'
 import NavBar from './components/NavBar'
 import City from './components/City'
+import Post from './components/Post'
 
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
           <Switch>
               <Route exact path="/"  render={HomePageComponent}/>
               <Route exact path="/cities/:city_id" component={City} />
+              <Route exact path="/cities/:city_id/posts/:id" component={Post} />
           </Switch>
         </div>
       </Router>

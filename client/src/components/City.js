@@ -66,7 +66,7 @@ try {
                     <CityImage>
                         <img src={this.state.city.image} alt-text="{this.state.city.name}"/>
                     </CityImage>
-                    <PostList posts={this.state.posts}/>
+                    <PostList posts={this.state.posts} city={this.state.city}/>
                 </CityDetailsContainer>
             </CityContainer>
         );
