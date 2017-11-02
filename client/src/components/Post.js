@@ -9,12 +9,14 @@ const PostContainer = styled.div`
 
 class Post extends Component {
     state = {
+        city: {},
         post: {
             title: '',
             description: ''
         },
         editPostDetails: false,
-        redirectToPost: false
+        // redirectToPost: false,
+        redirectToCity: false
     }
 
     async componentWillMount() {
@@ -55,13 +57,39 @@ class Post extends Component {
         this.setState({ editPostDetails: !this.state.editPostDetails })
     }
 
-    render() {
 
-        if (this.state.redirectToPost) {
-            return (
-               <Redirect to={`/cities`} />
-            )
-        }
+    deletePost = async (post) => {
+      try { 
+        const { city_id, id } = this.props.match.params
+        const response = await axios.delete(`/api/cities/${city_id}/posts/${id}`)
+        this.setState({ 
+            post: response.data, 
+            redirectToCity: true,
+            city: response.data
+         })
+
+        console.log(response.data)
+    } catch (error) {
+        console.log(error)
+        await this.setState({ error: error.message })
+    }
+}
+
+
+
+    render() {
+        // if (this.state.redirectToCity){
+        //     return (
+        //         <Redirect to={`/cities/${this.state.post.city_id}`} />
+        //     )
+        // }
+
+        // if (this.state.redirectToPost) {
+        //     return (
+        //        <Redirect to={`/cities`} />
+        //     )
+        // }
+    
         if (!this.state.editPostDetails){
             return (
                 <PostContainer>
@@ -69,6 +97,7 @@ class Post extends Component {
                     <p>{this.state.post.description}</p>
                     <p>{this.state.post.created_at}</p>
                     <button onClick={this.toggleEditPost}>Edit</button>
+                    <button onClick={this.deletePost}>Delete Post</button>
                 </PostContainer>
             )
         }
