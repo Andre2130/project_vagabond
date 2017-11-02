@@ -2,10 +2,20 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components';
 
+const CityContainer = styled.div`
+`
+
 const CityImage = styled.div`
 img{
-    max-width: 500px;
+    border-radius: 5px;
+    max-width: 600px;
 }
+`
+const CityDetailsContainer = styled.div`
+
+display: block;
+text-align: center;
+
 `
 
 class City extends Component {
@@ -25,13 +35,15 @@ class City extends Component {
     }
     render() {
         return (
-            <div>
-                <h2>{this.state.city.name}</h2>
-                
-                <CityImage>
-                    <img src={this.state.city.image} />
-                </CityImage>
-            </div>
+            <CityContainer>
+                <CityDetailsContainer>
+                    <h2>{this.state.city.name}</h2>
+                    
+                    <CityImage>
+                        <img src={this.state.city.image} />
+                    </CityImage>
+                </CityDetailsContainer>
+            </CityContainer>
         );
     }
 }
