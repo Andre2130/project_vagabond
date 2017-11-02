@@ -18,7 +18,7 @@ class EditForm extends Component {
 
     handleChange = (event) => {
         const attribute = event.target.name
-        const updatedPost = {...this.state.updatedPost}
+        const updatedPost = { ...this.state.updatedPost }
         updatedPost[attribute] = event.target.value
         this.setState({ updatedPost: updatedPost })
     }
@@ -31,23 +31,25 @@ class EditForm extends Component {
         const response = await axios.patch(`/api/cities/${city_id}/posts/${id}`, {
             post: clonedPost
         })
+        await this.props.showPost()
+        this.props.toggleEditPost()
         this.setState({ updatedPost: response.data, redirectToPost: true })
+        
+        //window.location.reload()
     }
 
+    componentDidUpdate() {
+        
+    }
 
     render() {
-
         if (this.state.redirectToPost === true) {
             const city_id = this.state.updatedPost.city_id
             const id = this.state.updatedPost.id
-       
             return (
                 <Redirect to={`/cities/${city_id}/posts/${id}`} />
             )
         }
-
-
-
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -62,8 +64,7 @@ class EditForm extends Component {
                     </div>
                 </form>
             </div>
-        );
+        )
     }
 }
-
 export default EditForm;
