@@ -8,6 +8,7 @@ import NavBar from './components/NavBar'
 import City from './components/City'
 import Post from './components/Post'
 import PostForm from './components/PostForm'
+import EditPost from './components/EditPost'
 
 
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
               <Route exact path="/cities/:city_id" component={City} />
               <Route exact path="/cities/:city_id/posts/:id" component={Post} />
               <Route exact path="/cities/:city_id/posts" component={PostForm} />
+              <Route exact path="/cities/:city_id/posts/:id" component={EditPost} />
           </Switch>
         </div>
       </Router>

@@ -33,6 +33,7 @@ render() {
                 <strong>{this.state.post.title}</strong>
                 <p>{this.state.post.description}</p>
                 <p>{this.state.post.created_at}</p>
+                <button>Edit This Post</button>
 
         </PostContainer>
     )

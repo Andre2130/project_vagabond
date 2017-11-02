@@ -19,6 +19,10 @@ class Api::PostsController < ApplicationController
     end
 
     def update
+        @post = Post.find(params[:id])
+        @post.update!(post_params)
+
+        render json: @post
     end
 
     def destroy
