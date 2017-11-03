@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
-import { confirmable } from 'react-confirm';
 import EditForm from './EditForm'
 
 const PostContainer = styled.div`
