@@ -5,14 +5,6 @@ import Moment from 'react-moment';
 import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
-//   .cart {
-//     border: 1px solid black;
-//     width: 35%;
-//     min-height: 600px;
-//     box-shadow: 1px 1px 3px black;
-//   }
-
-
 const PostContainer = styled.div`
     display: flex;
     just-content: space-around;
@@ -48,8 +40,6 @@ font-family: "Oxygen", sans-serif;
 	border: 2px solid palevioletred;
 	border-radius: 3px;
 `
-// margin: ${props => props.margin};
-// padding: ${props => props.padding};
 
 const Buttons = styled.div`
     display: flex;
