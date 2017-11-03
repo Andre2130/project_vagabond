@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
+import Moment from 'react-moment';
 import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
+
 
 const PostContainer = styled.div`
 padding-top: 100px;
@@ -87,6 +89,13 @@ class Post extends Component {
         }
     }
 
+    // getFormattedDate = () => {
+    //     const { id, city_id } = this.props.match.params
+    //     const response = await axios.get(`/api/cities/${city_id}/posts/${id}`)
+    //     await this.setState({
+    //         posts: response.data
+    //     })
+    // }
 
 
     render() {
@@ -101,7 +110,7 @@ class Post extends Component {
                 <PostContainer>
                     <strong>{this.state.posts.title}</strong>
                     <p>{this.state.posts.description}</p>
-                    <p>{this.state.posts.created_at}</p>
+                    <p><Moment fromNow>{this.state.posts.created_at}</Moment></p>
                     <Button onClick={this.toggleEditPost}>Edit</Button>
                     <Button onClick={() => {
                         const a = window.confirm('Are You Sure?')
