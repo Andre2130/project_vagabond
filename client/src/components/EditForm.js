@@ -23,7 +23,7 @@ const Input = styled.input.attrs({
 	color: black;
     font-family: "Oxygen", sans-serif;
 	font-size: em;
-	border: 2px solid gray;
+	border: 2px solid black;
 	border-radius: 3px;
 
     margin: ${props => props.margin};
@@ -32,7 +32,7 @@ const Input = styled.input.attrs({
 
 const Button = styled.button`
 background: white;
-   color: Black;
+   color: black;
    font-size: 1em;
    margin: 1em;
    padding: 0.25em 1em;

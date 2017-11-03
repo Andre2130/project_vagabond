@@ -23,7 +23,7 @@ const Input = styled.input.attrs({
 	color: black;
     font-family: "Oxygen", sans-serif;
 	font-size: em;
-	border: 2px solid gray;
+	border: 2px solid black;
 	border-radius: 3px;
 
     margin: ${props => props.margin};

@@ -9,6 +9,7 @@ padding-top: 100px;
 text-align: center;
 `
 const Input = styled.input`
+font-family: "Oxygen", sans-serif;
 	color: palevioletred;
 	font-size: em;
 	border: 2px solid palevioletred;
@@ -116,7 +117,7 @@ class Post extends Component {
                     <p>{this.state.post.description}</p>
                     <p>{this.state.post.created_at}</p>
                     <Button onClick={this.toggleEditPost}>Edit</Button>
-                    <Button onClick={this.deletePost}>Delete Post</Button>
+                    <Button onClick={this.deletePost}>Delete</Button>
                 </PostContainer>
             )
         }

@@ -56,6 +56,7 @@ try {
 
 }
 
+
     render() {
         return (
             <CityContainer>
@@ -68,7 +69,7 @@ try {
                     <PostList posts={this.state.posts} city={this.state.city}/>
                 </CityDetailsContainer>
             </CityContainer>
-        )
+        );
     }
 }
 
