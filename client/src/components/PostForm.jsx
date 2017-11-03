@@ -3,9 +3,21 @@ import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
+
+const FormContainerParentContainer = styled.div`
+max-width: 1000px;
+max-height: 650px;
+border: 1px solid rgba(87, 87, 87, .6); 
+border-radius: 2px;
+text-align: center;
+margin: 40px auto;
+box-shadow: .5px .5px .5px .5px;
+`
+
+
 const FormContainer = styled.div`
 font-family: "Oxygen", sans-serif;
- padding-top: 80px;
+padding-top: 50px;
 padding-bottom: 80px;
 /* border: solid black 2px; */
 max-width: 700px;
@@ -15,11 +27,11 @@ margin: 0 auto;
 text-align: center;
 background-color: white;
 border-radius: 5px;
-max-width: 400px;
+max-width: 500px;
 max-height: 400px;
-margin: 20px auto;
+margin: 65px auto;
 border: 1px solid rgba(87, 87, 87, .2); 
- box-shadow: .5px .5px .5px .5px;
+box-shadow: .5px .5px .5px .5px;
 `
 
 const Input = styled.input.attrs({
@@ -30,7 +42,7 @@ const Input = styled.input.attrs({
 	color: black;
     font-family: "Oxygen", sans-serif;
 	font-size: em;
-	border: 2px solid black;
+	border: 2px solid #62C1FF;
 	border-radius: 3px;
 
     margin: ${props => props.margin};
@@ -45,7 +57,7 @@ const TextArea = styled.textarea.attrs({
 	color: black;
     font-family: "Oxygen", sans-serif;
 	font-size: 0.75em;
-	border: 2px solid black;
+	border: 2px solid #62C1FF;
 	border-radius: 3px;
 
     margin: ${props => props.margin};
@@ -55,12 +67,12 @@ const TextArea = styled.textarea.attrs({
 
 const Button = styled.button`
 cursor: pointer;
- background: white;
-	color: Black;
+ background: #62C1FF;
+	color: white;
 	font-size: 1em;
 	margin: 1em;
 	padding: 0.25em 1em;
-	border: 2px solid black;
+	border: 2px solid white;
 	border-radius: 3px;
     &:hover{
         box-shadow: 1px 1px 2px;
@@ -112,6 +124,8 @@ class PostForm extends Component {
         }
         
         return (
+            <FormContainerParentContainer>
+
             <FormContainer>
                 <form onSubmit={this.handleSubmit}>
                 <h2>New Post</h2>
@@ -137,6 +151,7 @@ class PostForm extends Component {
                     </div>
                 </form>
             </FormContainer>
+            </FormContainerParentContainer>
         )
     }
 }
