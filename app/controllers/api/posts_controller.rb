@@ -26,10 +26,10 @@ class Api::PostsController < ApplicationController
     end
 
     def destroy
-        @post = Post.find(params[:id]).delete
-        
-
-        render status: :ok
+        @city = City.find(params[:city_id])
+        @city.posts.delete(Post.find(params[:id]))
+        @city.save!
+        render json: @city
     end
 
 private

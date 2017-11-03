@@ -10,12 +10,8 @@ const PostContainer = styled.div`
 class Post extends Component {
     state = {
         city: {},
-        post: {
-            title: '',
-            description: ''
-        },
+        posts: [],
         editPostDetails: false,
-        // redirectToPost: false,
         redirectToCity: false
     }
 
@@ -24,7 +20,7 @@ class Post extends Component {
             const { id, city_id } = this.props.match.params
             const response = await axios.get(`/api/cities/${city_id}/posts/${id}`)
             await this.setState({
-                post: response.data
+                posts: response.data
             })
         } catch (error) {
             console.log(error)
@@ -50,14 +46,13 @@ class Post extends Component {
     }
 
 
-    deletePost = async (post) => {
+    deletePost = async () => {
       try { 
         const { city_id, id } = this.props.match.params
         const response = await axios.delete(`/api/cities/${city_id}/posts/${id}`)
         this.setState({ 
-            post: response.data, 
+            city: response.data,
             redirectToCity: true,
-            city: response.data
          })
 
         console.log(response.data)
@@ -70,26 +65,21 @@ class Post extends Component {
 
 
     render() {
-        // if (this.state.redirectToCity){
-        //     return (
-        //         <Redirect to={`/cities/${this.state.post.city_id}`} />
-        //     )
-        // }
-
-        // if (this.state.redirectToPost) {
-        //     return (
-        //        <Redirect to={`/cities`} />
-        //     )
-        // }
+        if (this.state.redirectToCity === true){
+            return (
+                <Redirect to={`/cities/${this.state.city.id}`} />
+            )
+        }
     
         if (!this.state.editPostDetails){
             return (
                 <PostContainer>
-                    <strong>{this.state.post.title}</strong>
-                    <p>{this.state.post.description}</p>
-                    <p>{this.state.post.created_at}</p>
+                    <strong>{this.state.posts.title}</strong>
+                    <p>{this.state.posts.description}</p>
+                    <p>{this.state.posts.created_at}</p>
                     <button onClick={this.toggleEditPost}>Edit</button>
                     <button onClick={this.deletePost}>Delete Post</button>
+                    <Link to={`/cities/${this.state.posts.city_id}`}><button>Back</button></Link>
                 </PostContainer>
             )
         }
