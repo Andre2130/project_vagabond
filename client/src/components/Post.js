@@ -17,7 +17,20 @@ const Input = styled.input`
 	// margin: ${props => props.margin};
 	// padding: ${props => props.padding};
 
-
+    const Button = styled.button`
+    cursor: pointer;
+    background: white;
+       color: Black;
+       font-size: 1em;
+       margin: 1em;
+       padding: 0.25em 1em;
+       border: 2px solid black;
+       border-radius: 3px;
+       &:hover{
+        box-shadow: 1px 1px 2px;
+    }
+   `
+   
 
 
 
@@ -102,8 +115,8 @@ class Post extends Component {
                     <strong>{this.state.post.title}</strong>
                     <p>{this.state.post.description}</p>
                     <p>{this.state.post.created_at}</p>
-                    <button onClick={this.toggleEditPost}>Edit</button>
-                    <button onClick={this.deletePost}>Delete Post</button>
+                    <Button onClick={this.toggleEditPost}>Edit</Button>
+                    <Button onClick={this.deletePost}>Delete Post</Button>
                 </PostContainer>
             )
         }

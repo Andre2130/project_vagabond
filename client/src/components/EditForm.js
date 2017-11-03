@@ -30,6 +30,20 @@ const Input = styled.input.attrs({
 	padding: ${props => props.padding};
 `
 
+const Button = styled.button`
+background: white;
+   color: Black;
+   font-size: 1em;
+   margin: 1em;
+   padding: 0.25em 1em;
+   border: 2px solid black;
+   border-radius: 3px;
+   &:hover{
+        box-shadow: 1px 1px 2px;
+    }
+`
+
+
 
 class EditForm extends Component {
     state = {
@@ -90,7 +104,7 @@ class EditForm extends Component {
                         size="4em"/>
                     </div>
                     <div>
-                        <button>Update Post</button>
+                        <Button>Update Post</Button>
                     </div>
                 </form>
             </FormContainer>

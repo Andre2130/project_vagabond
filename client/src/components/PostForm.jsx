@@ -30,9 +30,21 @@ const Input = styled.input.attrs({
 	padding: ${props => props.padding};
 `
 
-const StyledTextArea = styled.textarea`
-
+const Button = styled.button`
+cursor: pointer;
+ background: white;
+	color: Black;
+	font-size: 1em;
+	margin: 1em;
+	padding: 0.25em 1em;
+	border: 2px solid black;
+	border-radius: 3px;
+    &:hover{
+        box-shadow: 1px 1px 2px;
+    }
 `
+
+
 
 
 class PostForm extends Component {
@@ -98,7 +110,7 @@ class PostForm extends Component {
 
                     </div>
                     <div>
-                        <button>Submit New Post</button>
+                        <Button>Submit New Post</Button>
                     </div>
                 </form>
             </FormContainer>
