@@ -25,7 +25,7 @@ border: 1px solid rgba(87, 87, 87, .2);
 const Input = styled.input.attrs({
     
 	margin: props => props.size || '1em',
-	padding: props => props.size || '.5em'
+	padding: props => props.size || '2em'
 })`
 	color: black;
     font-family: "Oxygen", sans-serif;
@@ -36,6 +36,22 @@ const Input = styled.input.attrs({
     margin: ${props => props.margin};
 	padding: ${props => props.padding};
 `
+
+const TextArea = styled.textarea.attrs({
+    
+	margin: props => props.size || '.5em',
+	padding: props => props.size || '.5em'
+})`
+	color: black;
+    font-family: "Oxygen", sans-serif;
+	font-size: 0.75em;
+	border: 2px solid black;
+	border-radius: 3px;
+
+    margin: ${props => props.margin};
+	padding: ${props => props.padding};
+`
+
 
 const Button = styled.button`
 cursor: pointer;
@@ -108,7 +124,7 @@ class PostForm extends Component {
                         size="2em"/>
                     </div>
                     <div>
-                     <Input onChange={this.handleChange} 
+                     <TextArea onChange={this.handleChange} 
                      placeholder='Description' 
                      name='description' 
                      type="text" 

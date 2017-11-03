@@ -5,8 +5,12 @@ import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
 const PostContainer = styled.div`
+<<<<<<< HEAD
+text-align:center;
+=======
 padding-top: 100px;
 text-align: center;
+>>>>>>> c5e65e5be8fc0953fd4e6047dd5157bc8a233b73
 `
 const Input = styled.input`
 font-family: "Oxygen", sans-serif;

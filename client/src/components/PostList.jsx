@@ -29,7 +29,7 @@ const PostList = (props) => {
             {props.posts.map((post) => {
                 return (
                     <div>
-                        <Link to={`/cities/${props.city.id}/posts/${post.id}`}>{post.title} </Link>
+                   <Link to={`/cities/${props.city.id}/posts/${post.id}`}>{post.title} </Link><br />
                     </div>
                 )
             })}

@@ -4,19 +4,24 @@ import styled from 'styled-components';
 import PostList from './PostList'
 
 const CityContainer = styled.div`
+background-color:black;
 `
 
 const CityImage = styled.div`
 img{
     border-radius: 5px;
-    max-width: 600px;
-}
+    width: 100%;
+    height: 405px;
+},
+
 `
 const CityDetailsContainer = styled.div`
 
 display: block;
 text-align: center;
-
+border:solid, grey, 1px;
+float:left;
+background-color:#eaeff7;
 `
 
 class City extends Component {
@@ -61,10 +66,9 @@ try {
         return (
             <CityContainer>
                 <CityDetailsContainer>
-                    <h2>{this.state.city.name}</h2>
-                    
                     <CityImage>
                         <img src={this.state.city.image} alt-text="{this.state.city.name}"/>
+                        <h2>{this.state.city.name}</h2>
                     </CityImage>
                     <PostList posts={this.state.posts} city={this.state.city}/>
                 </CityDetailsContainer>
