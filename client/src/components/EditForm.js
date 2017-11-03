@@ -89,7 +89,7 @@ class EditForm extends Component {
         return (
             <FormContainer>
                 <form onSubmit={this.handleSubmit}>
-                <h2>Edit {this.props.post.title}</h2>
+                <h2>Edit</h2>
                     <div>
                         <Input onChange={this.handleChange} 
                         name='title' 

@@ -35,6 +35,12 @@ City.destroy_all
                 # user_id: user.id,
                 city_id: city.id
             )
+            Post.create(
+                title: 'Restaurants',
+                description: 'Best Chefs in the world, AMAZING food',
+                # user_id: user.id,
+                city_id: city.id
+            )
         end
     # end
 
