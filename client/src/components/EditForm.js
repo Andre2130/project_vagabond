@@ -76,7 +76,7 @@ class EditForm extends Component {
     }
 
     componentWillMount() {
-        this.setState({ updatedPost: this.props.post })
+        this.setState({ updatedPost: this.props.posts })
     }
 
     handleChange = (event) => {
@@ -100,7 +100,7 @@ class EditForm extends Component {
     }
 
     render() {
-        if (this.state.redirectToPost === true) {
+        if (this.state.redirectToPost) {
             const city_id = this.state.updatedPost.city_id
             const id = this.state.updatedPost.id
             return (
@@ -115,13 +115,13 @@ class EditForm extends Component {
                         <Input onChange={this.handleChange} 
                         name='title' 
                         type="text" 
-                        placeholder={this.props.post.title} size="2em" />
+                        placeholder={this.props.posts.title} size="2em" />
                     </div>
                     <div>
                         <TextArea onChange={this.handleChange} 
                         name='description' 
                         type="text" 
-                        placeholder={this.props.post.description}
+                        placeholder={this.props.posts.description}
                         size="4em"/>
                     </div>
                     <div>

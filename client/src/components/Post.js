@@ -60,7 +60,7 @@ class Post extends Component {
             const { id, city_id } = this.props.match.params
             const response = await axios.get(`/api/cities/${city_id}/posts/${id}`)
             await this.setState({
-                post: response.data
+                posts: response.data
             })
         } catch (error) {
             console.log(error)
@@ -112,7 +112,7 @@ class Post extends Component {
         }
         else {
             return (
-                <EditForm toggleEditPost={this.toggleEditPost} showPost={this.showPost} post={this.state.post} />
+                <EditForm toggleEditPost={this.toggleEditPost} showPost={this.showPost} posts={this.state.posts} />
             )
         }
     }
