@@ -5,11 +5,42 @@ import Moment from 'react-moment';
 import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
+//   .cart {
+//     border: 1px solid black;
+//     width: 35%;
+//     min-height: 600px;
+//     box-shadow: 1px 1px 3px black;
+//   }
+
 
 const PostContainer = styled.div`
-padding-top: 100px;
-text-align: center;
+    display: flex;
+    just-content: space-around;
+    width: 95%;
+    margin: 0 auto
 `
+
+const ImageContainer = styled.div`
+    width: 55%;
+    max-height: 600px
+`
+
+const Image = styled.img`
+    width: 100%;
+    max-height: 600px
+`
+
+const ReviewContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 35%;
+    min-height: 600px;
+    box-shadow: 1px 1px 3px black;
+`
+
 const Input = styled.input`
 font-family: "Oxygen", sans-serif;
 	color: palevioletred;
@@ -19,6 +50,10 @@ font-family: "Oxygen", sans-serif;
 `
 // margin: ${props => props.margin};
 // padding: ${props => props.padding};
+
+const Buttons = styled.div`
+    display: flex;
+`
 
 const Button = styled.button`
     background: white;
@@ -51,6 +86,16 @@ class Post extends Component {
             await this.setState({
                 posts: response.data
             })
+        } catch (error) {
+            console.log(error)
+            await this.setState({ error: error.message })
+        } try {
+            const { city_id } = this.props.match.params
+            const response = await axios.get(`/api/cities/${city_id}`)
+            this.setState({
+                city: response.data
+            })
+            console.log(response.data)
         } catch (error) {
             console.log(error)
             await this.setState({ error: error.message })
@@ -89,15 +134,6 @@ class Post extends Component {
         }
     }
 
-    // getFormattedDate = () => {
-    //     const { id, city_id } = this.props.match.params
-    //     const response = await axios.get(`/api/cities/${city_id}/posts/${id}`)
-    //     await this.setState({
-    //         posts: response.data
-    //     })
-    // }
-
-
     render() {
         if (this.state.redirectToCity === true) {
             return (
@@ -107,19 +143,32 @@ class Post extends Component {
 
         if (!this.state.editPostDetails) {
             return (
-                <PostContainer>
-                    <strong>{this.state.posts.title}</strong>
-                    <p>{this.state.posts.description}</p>
-                    <p><Moment fromNow>{this.state.posts.created_at}</Moment></p>
-                    <Button onClick={this.toggleEditPost}>Edit</Button>
-                    <Button onClick={() => {
-                        const a = window.confirm('Are You Sure?')
-                        if (a == true) {
-                            this.deletePost()
-                        }
-                    }}>Delete Post</Button>
-                    <Link to={`/cities/${this.state.posts.city_id}`}><Button>Back</Button></Link>
-                </PostContainer>
+                <div>
+                    <br />
+                    <br />
+                    <br />
+                    <PostContainer>
+                        <ImageContainer>
+                            <Image src={this.state.city.sketch_photo} alt='city photo' />
+                        </ImageContainer>
+                       
+                        <ReviewContainer>
+                            <strong>{this.state.posts.title}</strong>
+                            <p>{this.state.posts.description}</p>
+                            <p><Moment fromNow>{this.state.posts.created_at}</Moment></p>
+                            <Buttons>
+                                <Button onClick={this.toggleEditPost}>Edit</Button>
+                                <Button onClick={() => {
+                                    const a = window.confirm('Are You Sure?')
+                                    if (a == true) {
+                                        this.deletePost()
+                                    }
+                                }}>Delete Post</Button>
+                                <Link to={`/cities/${this.state.posts.city_id}`}><Button>Back</Button></Link>
+                            </Buttons>
+                        </ReviewContainer>
+                    </PostContainer>
+                </div>
 
             )
         }
