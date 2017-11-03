@@ -5,14 +5,21 @@ import styled from 'styled-components'
 
 const FormContainer = styled.div`
 font-family: "Oxygen", sans-serif;
- padding-top: 100px;
-padding-left: 50px; 
+ padding-top: 80px;
+padding-bottom: 80px;
 /* border: solid black 2px; */
 max-width: 700px;
 max-height: 500px;
 margin: 0 auto;
 /* pading: 0 1rem;  */
 text-align: center;
+background-color: white;
+border-radius: 5px;
+max-width: 400px;
+max-height: 400px;
+margin: 20px auto;
+border: 1px solid rgba(87, 87, 87, .2); 
+ box-shadow: .5px .5px .5px .5px;
 `
 
 const Input = styled.input.attrs({
