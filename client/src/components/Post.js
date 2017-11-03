@@ -16,10 +16,10 @@ font-family: "Oxygen", sans-serif;
 	border: 2px solid palevioletred;
 	border-radius: 3px;
 `
-	// margin: ${props => props.margin};
-	// padding: ${props => props.padding};
+// margin: ${props => props.margin};
+// padding: ${props => props.padding};
 
-    const Button = styled.button`
+const Button = styled.button`
     background: white;
    color: black;
    font-size: 1em;
@@ -31,7 +31,7 @@ font-family: "Oxygen", sans-serif;
         box-shadow: 1px 1px 2px;
     }
 `
-   
+
 
 
 
@@ -75,29 +75,29 @@ class Post extends Component {
 
 
     deletePost = async () => {
-      try { 
-        const { city_id, id } = this.props.match.params
-        const response = await axios.delete(`/api/cities/${city_id}/posts/${id}`)
-        this.setState({ 
-            city: response.data,
-            redirectToCity: true,
-         })
-    } catch (error) {
-        console.log(error)
-        await this.setState({ error: error.message })
+        try {
+            const { city_id, id } = this.props.match.params
+            const response = await axios.delete(`/api/cities/${city_id}/posts/${id}`)
+            this.setState({
+                city: response.data,
+                redirectToCity: true,
+            })
+        } catch (error) {
+            console.log(error)
+            await this.setState({ error: error.message })
+        }
     }
-}
 
 
 
     render() {
-        if (this.state.redirectToCity === true){
+        if (this.state.redirectToCity === true) {
             return (
                 <Redirect to={`/cities/${this.state.city.id}`} />
             )
         }
-    
-        if (!this.state.editPostDetails){
+
+        if (!this.state.editPostDetails) {
             return (
                 <PostContainer>
                     <strong>{this.state.posts.title}</strong>
@@ -105,11 +105,11 @@ class Post extends Component {
                     <p>{this.state.posts.created_at}</p>
                     <Button onClick={this.toggleEditPost}>Edit</Button>
                     <Button onClick={() => {
-                        const a = window.confirm('Are You Sure?') 
-                        if (a == true){
-                            
+                        const a = window.confirm('Are You Sure?')
+                        if (a == true) {
                             this.deletePost()
-                        }}}>Delete Post</Button>
+                        }
+                    }}>Delete Post</Button>
                     <Link to={`/cities/${this.state.posts.city_id}`}><Button>Back</Button></Link>
                 </PostContainer>
 
