@@ -5,6 +5,7 @@ import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
 const PostContainer = styled.div`
+text-align:center;
 `
 
 class Post extends Component {
