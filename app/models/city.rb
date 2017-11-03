@@ -1,11 +1,5 @@
 class City < ApplicationRecord
     has_many :posts, dependent: :destroy
-
-    def order_posts
-        posts
-         .order(Post.arel_table['created_at'].desc)
-         .first
-    end
   
 end
 
