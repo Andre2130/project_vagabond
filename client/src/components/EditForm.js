@@ -3,6 +3,48 @@ import axios from 'axios'
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom'
 
+const FormContainer = styled.div`
+font-family: "Oxygen", sans-serif;
+ padding-top: 100px;
+padding-left: 50px; 
+/* border: solid black 2px; */
+max-width: 700px;
+max-height: 500px;
+margin: 0 auto;
+/* pading: 0 1rem;  */
+text-align: center;
+`
+
+const Input = styled.input.attrs({
+    
+	margin: props => props.size || '1em',
+	padding: props => props.size || '.5em'
+})`
+	color: black;
+    font-family: "Oxygen", sans-serif;
+	font-size: em;
+	border: 2px solid black;
+	border-radius: 3px;
+
+    margin: ${props => props.margin};
+	padding: ${props => props.padding};
+`
+
+const Button = styled.button`
+background: white;
+   color: black;
+   font-size: 1em;
+   margin: 1em;
+   padding: 0.25em 1em;
+   border: 2px solid black;
+   border-radius: 3px;
+   &:hover{
+        box-shadow: 1px 1px 2px;
+    }
+`
+
+
+
 class EditForm extends Component {
     state = {
         updatedPost: {
@@ -13,7 +55,7 @@ class EditForm extends Component {
     }
 
     componentWillMount() {
-        this.setState({ updatedPost: this.props.post })
+        this.setState({ updatedPost: this.props.posts })
     }
 
     handleChange = (event) => {
@@ -37,7 +79,7 @@ class EditForm extends Component {
     }
 
     render() {
-        if (this.state.redirectToPost === true) {
+        if (this.state.redirectToPost) {
             const city_id = this.state.updatedPost.city_id
             const id = this.state.updatedPost.id
             return (
@@ -45,19 +87,27 @@ class EditForm extends Component {
             )
         }
         return (
-            <div>
+            <FormContainer>
                 <form onSubmit={this.handleSubmit}>
+                <h2>Edit</h2>
                     <div>
-                        <input onChange={this.handleChange} name='title' type="text" placeholder={this.props.post.title} />
+                        <Input onChange={this.handleChange} 
+                        name='title' 
+                        type="text" 
+                        placeholder={this.props.posts.title} size="2em" />
                     </div>
                     <div>
-                        <input onChange={this.handleChange} name='description' type="text" placeholder={this.props.post.description} />
+                        <Input onChange={this.handleChange} 
+                        name='description' 
+                        type="text" 
+                        placeholder={this.props.posts.description}
+                        size="4em"/>
                     </div>
                     <div>
-                        <button>Edit Post</button>
+                        <Button>Update Post</Button>
                     </div>
                 </form>
-            </div>
+            </FormContainer>
         )
     }
 }
