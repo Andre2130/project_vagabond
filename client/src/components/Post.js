@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
+import { confirmable } from 'react-confirm';
 import EditForm from './EditForm'
 
 const PostContainer = styled.div`
-<<<<<<< HEAD
-text-align:center;
-=======
 padding-top: 100px;
 text-align: center;
->>>>>>> c5e65e5be8fc0953fd4e6047dd5157bc8a233b73
 `
 const Input = styled.input`
 font-family: "Oxygen", sans-serif;
@@ -85,8 +82,6 @@ class Post extends Component {
             city: response.data,
             redirectToCity: true,
          })
-
-        console.log(response.data)
     } catch (error) {
         console.log(error)
         await this.setState({ error: error.message })
@@ -109,9 +104,15 @@ class Post extends Component {
                     <p>{this.state.posts.description}</p>
                     <p>{this.state.posts.created_at}</p>
                     <Button onClick={this.toggleEditPost}>Edit</Button>
-                    <Button onClick={this.deletePost}>Delete Post</Button>
+                    <Button onClick={() => {
+                        const a = window.confirm('Are You Sure?') 
+                        if (a == true){
+                            
+                            this.deletePost()
+                        }}}>Delete Post</Button>
                     <Link to={`/cities/${this.state.posts.city_id}`}><Button>Back</Button></Link>
                 </PostContainer>
+
             )
         }
         else {
