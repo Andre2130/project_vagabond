@@ -14,17 +14,20 @@ City.destroy_all
 
     cities << City.create!({
     name: "Atlanta", 
-    image:"https://i.imgur.com/ma1Eup5.jpg"
+    image:"https://i.imgur.com/ma1Eup5.jpg",
+    photo_url: "https://i.imgur.com/vBSPibc.png"
     })
 
     cities << City.create!({
     name: "London", 
-    image:"https://i.imgur.com/yahfVTm.jpg"
+    image:"https://i.imgur.com/yahfVTm.jpg",
+    photo_url: "https://i.imgur.com/yahfVTm.jpg"
     })
 
     cities << City.create!({
     name: "San Francisco", 
-    image:"https://i.imgur.com/aFys868.jpg"
+    image:"https://i.imgur.com/aFys868.jpg",
+    photo_url: "http://www.nugentappraisal.com/wp-content/uploads/2016/10/SANFRANCISCO.jpg"
     })
 
     # users.each do |user|
