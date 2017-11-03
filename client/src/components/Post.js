@@ -21,6 +21,7 @@ font-family: "Oxygen", sans-serif;
 // padding: ${props => props.padding};
 
 const Button = styled.button`
+    cursor: pointer;
     background: white;
    color: black;
    font-size: 1em;
