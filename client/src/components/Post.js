@@ -46,6 +46,7 @@ const Buttons = styled.div`
 `
 
 const Button = styled.button`
+    cursor: pointer;
     background: white;
    color: black;
    font-size: 1em;
