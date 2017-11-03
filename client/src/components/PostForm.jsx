@@ -3,6 +3,38 @@ import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
+const FormContainer = styled.div`
+font-family: "Oxygen", sans-serif;
+ padding-top: 100px;
+padding-left: 50px; 
+/* border: solid black 2px; */
+max-width: 700px;
+max-height: 500px;
+margin: 0 auto;
+/* pading: 0 1rem;  */
+text-align: center;
+`
+
+const Input = styled.input.attrs({
+    
+	margin: props => props.size || '1em',
+	padding: props => props.size || '.5em'
+})`
+	color: black;
+    font-family: "Oxygen", sans-serif;
+	font-size: em;
+	border: 2px solid gray;
+	border-radius: 3px;
+
+    margin: ${props => props.margin};
+	padding: ${props => props.padding};
+`
+
+const StyledTextArea = styled.textarea`
+
+`
+
+
 class PostForm extends Component {
 
     state = {
@@ -45,19 +77,31 @@ class PostForm extends Component {
         }
         
         return (
-            <div>
+            <FormContainer>
                 <form onSubmit={this.handleSubmit}>
+                <h2>New Post</h2>
                     <div>
-                        <input onChange={this.handleChange} placeholder='Title' name='title' type="text" value={this.state.newPost.title} />
+                        <Input onChange={this.handleChange} 
+                        placeholder='Title' 
+                        name='title' 
+                        type="text" 
+                        value={this.state.newPost.title} 
+                        size="2em"/>
                     </div>
                     <div>
-                        <input onChange={this.handleChange} placeholder='Description' name='description' type="text" value={this.state.newPost.description} />
+                     <Input onChange={this.handleChange} 
+                     placeholder='Description' 
+                     name='description' 
+                     type="text" 
+                     value={this.state.newPost.description} 
+                     size="4em"/> 
+
                     </div>
                     <div>
                         <button>Submit New Post</button>
                     </div>
                 </form>
-            </div>
+            </FormContainer>
         )
     }
 }

@@ -5,7 +5,21 @@ import { Redirect, Link } from 'react-router-dom'
 import EditForm from './EditForm'
 
 const PostContainer = styled.div`
+padding-top: 100px;
+text-align: center;
 `
+const Input = styled.input`
+	color: palevioletred;
+	font-size: em;
+	border: 2px solid palevioletred;
+	border-radius: 3px;
+`
+	// margin: ${props => props.margin};
+	// padding: ${props => props.padding};
+
+
+
+
 
 class Post extends Component {
     state = {

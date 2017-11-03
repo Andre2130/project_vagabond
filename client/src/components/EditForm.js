@@ -3,6 +3,34 @@ import axios from 'axios'
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom'
 
+const FormContainer = styled.div`
+font-family: "Oxygen", sans-serif;
+ padding-top: 100px;
+padding-left: 50px; 
+/* border: solid black 2px; */
+max-width: 700px;
+max-height: 500px;
+margin: 0 auto;
+/* pading: 0 1rem;  */
+text-align: center;
+`
+
+const Input = styled.input.attrs({
+    
+	margin: props => props.size || '1em',
+	padding: props => props.size || '.5em'
+})`
+	color: black;
+    font-family: "Oxygen", sans-serif;
+	font-size: em;
+	border: 2px solid gray;
+	border-radius: 3px;
+
+    margin: ${props => props.margin};
+	padding: ${props => props.padding};
+`
+
+
 class EditForm extends Component {
     state = {
         updatedPost: {
@@ -45,19 +73,27 @@ class EditForm extends Component {
             )
         }
         return (
-            <div>
+            <FormContainer>
                 <form onSubmit={this.handleSubmit}>
+                <h2>Edit {this.props.post.title}</h2>
                     <div>
-                        <input onChange={this.handleChange} name='title' type="text" placeholder={this.props.post.title} />
+                        <Input onChange={this.handleChange} 
+                        name='title' 
+                        type="text" 
+                        placeholder={this.props.post.title} size="2em" />
                     </div>
                     <div>
-                        <input onChange={this.handleChange} name='description' type="text" placeholder={this.props.post.description} />
+                        <Input onChange={this.handleChange} 
+                        name='description' 
+                        type="text" 
+                        placeholder={this.props.post.description}
+                        size="4em"/>
                     </div>
                     <div>
-                        <button>Edit Post</button>
+                        <button>Update Post</button>
                     </div>
                 </form>
-            </div>
+            </FormContainer>
         )
     }
 }
