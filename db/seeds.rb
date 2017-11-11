@@ -2,15 +2,15 @@ User.destroy_all
 City.destroy_all
 # Post.destroy_all
 
-    # users = []
+    users = []
     cities = []
     
-    # 5.times do 
-    #     users << User.create(
-    #         email: FFaker::Internet.email,
-    #         password: 'blahblah'
-    #     )
-    # end
+    5.times do 
+        users << User.create(
+            email: FFaker::Internet.email,
+            password: 'blahblah'
+        )
+    end
 
     cities << City.create!({
     name: "Atlanta", 
@@ -33,22 +33,22 @@ City.destroy_all
     sketch_photo: "https://i.imgur.com/onNv3F1.jpg"
     })
 
-    # users.each do |user|
-        cities.each do |city|
-            Post.create(
-                title: 'Nightlife',
-                description: 'fun bars, lots of live music, good clubs',
-                # user_id: user.id,
-                city_id: city.id
+
+    cities.each do |city|
+        Post.create(
+            title: 'Nightlife',
+            description: 'fun bars, lots of live music, good clubs',
+            # user_id: user.id,
+            city_id: city.id            
             )
-            Post.create(
-                title: 'Restaurants',
-                description: 'Best Chefs in the world, AMAZING food',
-                # user_id: user.id,
-                city_id: city.id
+        Post.create(
+            title: 'Restaurants',
+            description: 'Best Chefs in the world, AMAZING food',
+            # user_id: user.id,
+            city_id: city.id
             )
         end
-    # end
+  
 
     User.create!({
     email: "victoria@gmail.com", 

@@ -79,9 +79,6 @@ cursor: pointer;
     }
 `
 
-
-
-
 class PostForm extends Component {
 
     state = {
