@@ -15,7 +15,7 @@ class Api::PostsController < ApplicationController
         @post = Post.new(post_params)
         @city.posts << @post 
         @city.save!
-        render json: @post
+        render json: @city
     end
 
     def update
